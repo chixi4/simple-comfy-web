@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zImage - 文生图</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1 class="title">zImage</h1>
+      <div class="header-right">
+        <button id="themeToggle" class="theme-btn" title="切换亮/暗模式">[亮/暗]</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="panel">
+        <div class="form-group">
+          <label for="username">用户名:</label>
+          <div class="input-row">
+            <input type="text" id="username" placeholder="输入你的用户名" maxlength="32">
+          </div>
+          <div class="hint">(仅支持字母、数字、下划线、短横线)</div>
+        </div>
+
+        <div class="form-group">
+          <label for="token">登录口令:</label>
+          <div class="input-row">
+            <input type="password" id="token" placeholder="输入口令">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prompt">提示词:</label>
+          <textarea id="prompt" rows="4" placeholder="描述你想生成的图片..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>图片分辨率:</label>
+          <div class="resolution-row">
+            <span>横</span>
+            <input type="number" id="width" value="1024" min="64" max="2048" step="64">
+            <span>x 竖</span>
+            <input type="number" id="height" value="1024" min="64" max="2048" step="64">
+          </div>
+          <div class="hint">(分辨率不建议大于2048x2048)</div>
+        </div>
+
+        <div class="form-group">
+          <button id="generateBtn" class="generate-btn">[生成]</button>
+          <span id="status" class="status"></span>
+        </div>
+
+        <div id="currentImage" class="current-image"></div>
+      </section>
+
+      <section class="history-section">
+        <div class="history-header">生图历史:</div>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>zImage-egami</span>
+    </footer>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modalClose" class="modal-close">[X]</span>
+      <img id="modalImg" src="" alt="放大图片">
+      <div id="modalInfo" class="modal-info"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
