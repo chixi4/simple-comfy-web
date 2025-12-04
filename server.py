@@ -25,13 +25,8 @@ from pydantic import BaseModel, Field
 # Configuration
 APP_PORT = int(os.getenv("APP_PORT", "8000"))
 COMFY_BASE = os.getenv("COMFY_BASE", "http://127.0.0.1:8188").rstrip("/")
-SECRET_TOKEN = os.getenv("AUTH_TOKEN", "change")
-WORKFLOW_PATH = Path(
-    os.getenv(
-        "WORKFLOW_PATH",
-        r"E:\dev\ComfyUI-aki-v2\ComfyUI\user\default\workflows\文生图公益.json",
-    )
-)
+SECRET_TOKEN = os.getenv("AUTH_TOKEN", "changeme")  # Set via environment variable!
+WORKFLOW_PATH = Path(os.getenv("WORKFLOW_PATH", "workflow.json"))
 GENERATED_DIR = Path("generated")
 HISTORY_LIMIT = int(os.getenv("HISTORY_LIMIT", "50"))
 TIMEOUT_SECONDS = int(os.getenv("TIMEOUT_SECONDS", "120"))
